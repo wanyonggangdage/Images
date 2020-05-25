@@ -79,15 +79,4 @@ theme: jekyll-theme-slate
 deploy:
   type: git
   repo: git@github.com:jieli2015/jieli2015.github.io.git
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+

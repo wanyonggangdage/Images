@@ -12,4 +12,7 @@
 &ensp;&ensp;如上图我们可以看出水平方向上虚线被转化成了实线。在水平方向上求和，取最大值，记录下最大值的竖直方向上的点的坐标。
 
 根据如上步骤求得的坐标位置，在原图像上画出边界分割线：
-![image](https://wanyonggangdage.github.io/Images/11.PNG)  
+![image](https://wanyonggangdage.github.io/Images/11.PNG)
+
+
+## 3. 进行图像切割：

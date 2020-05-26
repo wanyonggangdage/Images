@@ -112,7 +112,7 @@ ROT:gI_l_l WW:300W|.:35;l_l WW:300W|.:35I_l_l WW:300W|.:35
  ![image](https://wanyonggangdage.github.io/Images/16.PNG)
 
  去掉一些干扰区域： 高度大于宽度的区域，如果识别字符串较长，也可以将宽度小于2倍高度的区域全部去掉，去掉干扰区域后如下图：  
-  ![image](https://wanyonggangdage.github.io/Images/15.PNG)
+  ![image](https://wanyonggangdage.github.io/Images/17.PNG)
 
 在区域分割的基础之上对所有的小的区域进行分别识别，识别结果如下：
 ```
@@ -144,3 +144,5 @@ Ex: 999/ME150308CT2008 AR
 ```
 999!ME150308CD008
 ```
+
+

@@ -34,3 +34,78 @@ P13 LU TS
 
 我们可以发现病人编号并没有被很好的识别出来。
 
+根据图像特点，文字分为左右两侧，左侧左对齐，右侧右对齐，我们先将图像拆分为左右两部分：
+![image](https://wanyonggangdage.github.io/Images/14.PNG)
+识别该图像识别结果如下：
+```
+QIANFOSHAN HOSPITAL
+WANG CHANG MEI
+(AR
+3L
+
+Mar 08 2015
+
+08:41:33 AM
+
+EPRAIN
+
+EER TS
+18
+1B
+
+ 
+
+——
+L LR
+```
+
+识别效果并不理想，通过如下方法，对上图进行拆分：
+
+```Python
+def SplitImageVertical(im,stepHeight):
+    x = im.shape[0]
+    ims = []
+    for i in range(int(x/stepHeight)):
+        low = i*stepHeight
+        high = (i+3)*stepHeight
+        if high > x-1:
+            high = x -1
+        ims.append(im[low:high,:])
+    return ims
+```
+
+拆分成高度较小的几张图进行识别，识别结果如下：
+
+```
+QIANFOSHAN HOSPITAL
+RER e I e
+AT TR
+
+1261639
+YRR 14WHNULHHNUMI:I
+FABWJul0319?1
+1261639
+
+Mar 08 2015
+08:41:33 4M1261639
+Maroszms
+08:41:33P.M
+512)(512mmvv‘.vli
+
+08:41:33 AM
+EPRAIN
+
+EER TS
+.b'IH(b'I.!
+
+Mag=1.94
+FL:
+NMag:1.94
+FL:
+ROT:gI_l_l WW:300W|.:35;l_l WW:300W|.:35I_l_l WW:300W|.:35
+```
+
+我们可以看到其识别效果还是不错的。估计Tesseract对于多行文本的识别有点问题，对于顶部的几行文本识别效果好。但由于步长不太容易确定。拆分较多张图片性能也是一个问题。
+
+## 2. 先提取文字区域，在分别进行识别以提高文字识别率
+

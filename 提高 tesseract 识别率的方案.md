@@ -109,6 +109,6 @@ ROT:gI_l_l WW:300W|.:35;l_l WW:300W|.:35I_l_l WW:300W|.:35
 
 ## 2. 先提取文字区域，在分别进行识别以提高文字识别率
 &emsp;利用Tesseract 现有方法，得到识别出的文字区域，识别结果如下图：  
- ![image](https://wanyonggangdage.github.io/Images/15.PNG)
+ ![image](https://wanyonggangdage.github.io/Images/16.PNG)
 
 

@@ -111,4 +111,36 @@ ROT:gI_l_l WW:300W|.:35;l_l WW:300W|.:35I_l_l WW:300W|.:35
 &emsp;利用Tesseract 现有方法，得到识别出的文字区域，识别结果如下图：  
  ![image](https://wanyonggangdage.github.io/Images/16.PNG)
 
+ 去掉一些干扰区域： 高度大于宽度的区域，如果识别字符串较长，也可以将宽度小于2倍高度的区域全部去掉，去掉干扰区域后如下图：  
+  ![image](https://wanyonggangdage.github.io/Images/15.PNG)
 
+在区域分割的基础之上对所有的小的区域进行分别识别，识别结果如下：
+```
+LineResult:GEMEDICM
+LineResult:IR
+LineResult:QIANFOSHAN
+LineResult:HUSPITAI.
+LineResult:WANG
+LineResult:LHAND
+LineResult:999!ME150308CD008
+LineResult:F43WJu1031971
+LineResult:1261639
+LineResult:Marus
+LineResult:SN327
+LineResult:08:41:33
+LineResult:512)(512
+LineResult:STND
+LineResult:SFOV
+LineResult:PRI T L
+LineResult:300WL'35
+```
+
+识别效果较好，但对于A号所在区域的识别反而退化了，并且几次执行下来的结果相对稳定，如下：
+直接进行识别结果：
+```
+Ex: 999/ME150308CT2008 AR
+```
+区域分割后的识别结果如下：
+```
+999!ME150308CD008
+```

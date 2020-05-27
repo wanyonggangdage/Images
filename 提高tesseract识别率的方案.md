@@ -197,6 +197,12 @@ LineResult:-.
 ### 单行识别补白，以提高识别效果
 
 在拆分后的区域进行背景色扩充，由小图扩充为大图，然后进行识别，如下图：
+扩充前： 
+
+![image](https://wanyonggangdage.github.io/Images/21.PNG) 
+
+扩充后：  
+
 ![image](https://wanyonggangdage.github.io/Images/20.PNG)
 
 扩充前识别结果：
@@ -213,8 +219,11 @@ QIANFOSHANHOSPITAL
 import cv2
 import pytesseract
 import pandas as pd
-from astropy.table import row
 from cmath import nan
+import numpy as np
+from dask.dataframe.core import Scalar
+
+
 
 def ShowImage(im):
     cv2.imshow('image',im)
@@ -339,8 +348,15 @@ newRegions = []
 for item in regions:
     if item[0] not in rowCombined:
         newRegions.append(item)           
-regions = newRegions        
-   
+regions = newRegions
+
+def ExpandLineImageGray(im):
+    x,y = im.shape
+    imExpand = np.zeros(shape = (2*x,2*y))  
+    imExpand[int(0.5*x):int(0.5*x)+x,int(0.5*y):int(0.5*y)+y] = im
+    return imExpand
+    
+          
 print("after",regions)
 for item in regions:
     left = item[1]
@@ -349,10 +365,14 @@ for item in regions:
     height = item[4]
     if width < 1*height:
         continue
-    cv2.rectangle(im,(left,top),(left+width,top+height),(255,0,255))
+    #cv2.rectangle(im,(left,top),(left+width,top+height),(255,0,255))
     lineIm = im[top:top+height,left:left+width]
-    lineResult = OCRInvockLine(lineIm)
+    height = 2*height
+    #lineIm = cv2.copyMakeBorder(lineIm,height,height,height,height,cv2.BORDER_CONSTANT)
+    lineResult = OCRInvock(lineIm)
     print('LineResult:'+lineResult.replace(' ',''))
+    ShowImage(lineIm)
+    cv2.imwrite('C:\\15.PNG',lineIm)
     resultArray.append(lineResult)
     #ShowImage(lineIm)
 
@@ -379,5 +399,6 @@ cv2.imwrite('C:\\15.PNG',im)
 #ShowImage(imR)
 
 
+  
   
 ```

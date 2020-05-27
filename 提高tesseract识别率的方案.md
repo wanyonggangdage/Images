@@ -196,7 +196,17 @@ LineResult:-.
 
 ### 单行识别补白，以提高识别效果
 
+在拆分后的区域进行背景色扩充，由小图扩充为大图，然后进行识别，如下图：
+![image](https://wanyonggangdage.github.io/Images/20.PNG)
 
+扩充前识别结果：
+```
+QI)‘NFOSHPNHOSPITPI.
+```
+扩充后识别结果：
+```
+QIANFOSHANHOSPITAL
+```
 
 ## 3. 代码及其相关解释
 ```Python

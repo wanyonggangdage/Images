@@ -194,6 +194,10 @@ LineResult:IAW.ZSO'.M..'
 LineResult:-.
 ```
 
+### 单行识别补白，以提高识别效果
+
+
+
 ## 3. 代码及其相关解释
 ```Python
 import cv2

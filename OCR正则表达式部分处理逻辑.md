@@ -156,8 +156,8 @@ S/HE150309CT30Z4 M7SVIMap 18 1938
 F 66 LiLei
 ```
 - 首先该字符串会被拆分为三部分，'F' '66' 'LiLei','F'和'66' 疑似性别和年龄的部分会首先被移除掉，剩余 'LiLei'部分。
-- 我们从下面配置文件中找到如下配置部分：  
-```C#
+- 我们从下面配置文件中找到如下配置部分：    
+```
 <patientNameSubstitutionEntry>
       <inputChar>L</inputChar>
 	  <grammar>L[a-zA-Z]+L[a-zA-Z]+</grammar>
@@ -171,7 +171,7 @@ F 66 LiLei
 0iuJu
 ```
 - 对于0 我们找到了如下两个配置项，但是正则表达式匹配上的只有第一个，因此我们将其替换为 Q。
-```HTML
+```
 <patientNameSubstitutionEntry>
       <inputChar>0</inputChar>
 	  <grammar>^0[a-zA-Z]+</grammar>
@@ -183,8 +183,8 @@ F 66 LiLei
       <substituteChar>O</substituteChar>
 </patientNameSubstitutionEntry>
 ```
-- 对于 J 我们找到了如下两个配置项，首先，字母 J 会被第一个配置命中，将其替换为 ' J',这样因为已经有了前导空格，所以下一个配置不会被命中。
-``` HTML
+- 对于 J 我们找到了如下两个配置项，首先，字母 J 会被第一个配置命中，将其替换为 ' J',这样因为已经有了前导空格，所以下一个配置不会被命中。  
+``` 
 <patientNameSubstitutionEntry>
       <inputChar>J</inputChar>
 	  <grammar>[a-zA-Z]+J[a-zA-Z]+</grammar>
@@ -244,7 +244,7 @@ Qiu Jurrr
 
 ### 用到配置文件 patientNameSubstitutions.xml 内容如下：
 
-``` HTML
+``` 
 <?xml version="1.0" encoding="utf-8"?>
 <patientNameSubstitutionEntries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <entries>

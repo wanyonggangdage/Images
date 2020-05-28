@@ -156,7 +156,7 @@ S/HE150309CT30Z4 M7SVIMap 18 1938
 F 66 LiLei
 ```
 - 首先该字符串会被拆分为三部分，'F' '66' 'LiLei','F'和'66' 疑似性别和年龄的部分会首先被移除掉，剩余 'LiLei'部分。
-- 我们从下面配置文件中找到如下配置部分：
+- 我们从下面配置文件中找到如下配置部分：  
 ```
 <patientNameSubstitutionEntry>
       <inputChar>L</inputChar>

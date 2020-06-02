@@ -214,7 +214,12 @@ QI)‘NFOSHPNHOSPITPI.
 QIANFOSHANHOSPITAL
 ```
 
-## 3. 代码及其相关解释
+
+## 3. 我们以几张千佛山分割图，常规条件下识别识别的图为例验证效果
+
+1. 
+
+## 4. 代码及其相关解释
 ```Python
 import cv2
 import pytesseract
@@ -402,3 +407,5 @@ cv2.imwrite('C:\\15.PNG',im)
   
   
 ```
+
+
